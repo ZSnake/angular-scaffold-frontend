@@ -3,8 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Angular JS Scaffold app.</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endinject -->
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bootstrap-css/css/bootstrap.min.css">
+    <!-- endinject -->
   </head>
-  <body>
-    
+  <body ng-app="AngularScaffold">
+    <h1>Layout de la pagina :)</h1>
+    <div class="container">
+      <div ui-view></div>
+  </div>
   </body>
+
+  <!-- bower:js -->
+  <script src="/jquery/dist/jquery.js"></script>
+  <script src="/angular/angular.js"></script>
+  <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bootstrap-css/js/bootstrap.min.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- endinject -->
+
+  <script src="app.js"></script>
+
+  <!-- inject:js -->
+  <script src="scripts/controllers/HomeController.js"></script>
+  <script src="scripts/services/HomeService.js"></script>
+  <!-- endinject -->
 </html>
