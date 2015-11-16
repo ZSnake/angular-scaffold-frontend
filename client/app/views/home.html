@@ -1,4 +1,30 @@
 <div ng-controller="HomeController">
     <h1>{{exampleObject.text}}</h1>
-    <input type="button" ng-click="changeExampleObject()" value="Click me!"
+    <div class="row">
+        <input type="button" ng-click="getStudents()" value="Fetch Students!">
+    </div>
+    <div class="row">
+        <input type="text" name="Name" ng-model="student.name">
+        <input type="text" name="Account" ng-model="student.account">
+        <input type="button" ng-click="postStudents()" value="Post to /students!">
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>
+          Cuenta
+        </th>
+        <th>
+          Nombre
+        </th>
+      </tr>
+      <tr ng-repeat="student in students">
+        <td>
+          {{student.account}}
+        </td>
+        <td>
+          {{student.name}}
+        </td>
+      </tr>
+    </table>
 </div>
