@@ -4,8 +4,10 @@
         <input type="button" ng-click="getStudents()" value="Fetch Students!">
     </div>
     <div class="row">
-        <input type="text" name="Name" ng-model="student.name">
+        <label for="Account">Número de cuenta: </label>
         <input type="text" name="Account" ng-model="student.account">
+        <label for="Name">Nombre: </label>
+        <input type="text" name="Name" ng-model="student.name">
         <input type="button" ng-click="postStudents()" value="Post to /students!">
     </div>
 
