@@ -12,22 +12,19 @@
     <!-- endinject -->
   </head>
   <body ng-app="AngularScaffold">
-    <nav class="navbar navbar-default" ng-controller="MainController">
+    <nav class="navbar navbar-default" ng-controller="NavbarController">
       <div class="container-fluid" >
-        <div class="navbar-header">
+        <div class="navbar-header pull-right">
           <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
+            <div class="form-group pull-right" ng-show="!$root.currentUser">
               <input type="text" class="form-control" placeholder="username" ng-model="user.username">
               <input type="password" class="form-control" placeholder="password" ng-model="user.password">
+              <button type="submit" class="btn btn-default" ng-click="login(user)">Log in</button>
+              <button type="submit" class="btn btn-default" ng-click="register()">Register!</button>
             </div>
-            <button type="submit" class="btn btn-default" ng-click="login()">Log in</button>
-            <button type="submit" class="btn btn-default" ng-click="logout()">Log out</button>
-
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="username" ng-model="user.username">
-              <input type="password" class="form-control" placeholder="password" ng-model="user.password">
+            <div class="row">
+                <button type="submit" class="btn btn-default" ng-click="logout()" ng-show="$root.currentUser">Log out</button>
             </div>
-            <button type="submit" class="btn btn-default" ng-click="register()">Register</button>
           </form>
         </div>
       </div>
@@ -48,6 +45,8 @@
 
   <script src="/bootstrap-css/js/bootstrap.min.js"></script>
 
+  <script src="/Angular-swx-session-storage ($sessionStorage)/release/swx-session-storage.min.js"></script>
+
   <script src="/bootstrap/dist/js/bootstrap.js"></script>
 
   <!-- endinject -->
@@ -56,7 +55,7 @@
 
   <!-- inject:js -->
   <script src="scripts/controllers/HomeController.js"></script>
-  <script src="scripts/controllers/mainController.js"></script>
+  <script src="scripts/controllers/navbarController.js"></script>
   <script src="scripts/services/authService.js"></script>
   <script src="scripts/services/HomeService.js"></script>
   <!-- endinject -->

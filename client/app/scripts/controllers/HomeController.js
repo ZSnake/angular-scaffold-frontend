@@ -9,7 +9,7 @@ angular.module('AngularScaffold.Controllers')
         HomeService.GetStudents().then(function(response){
           $scope.students = response.data;
         }).catch(function(err){
-          alert('Error fetching students')
+          alert(err.data.error + " " + err.data.message)
         });
       }
 
@@ -17,7 +17,7 @@ angular.module('AngularScaffold.Controllers')
         HomeService.PostStudents($scope.student).then(function(response){
           alert("Posted to /students");
         }).catch(function(err){
-          alert("Error posting to students");
+          alert(err.data.error + " " + err.data.message);
         });
       }
       $scope.changeExampleObject = function(){
