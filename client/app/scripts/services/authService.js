@@ -1,4 +1,4 @@
-angular.module('AngularScaffold.Services').factory('AuthService', ['$http',
+angular.module('AngularScaffold.Services').factory('AuthService', ['$http', 
 	function($http){
 		return {
 				Logout: function(){

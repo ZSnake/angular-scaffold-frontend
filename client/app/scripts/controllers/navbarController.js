@@ -1,10 +1,12 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('NavbarController', ['AuthService', '$scope', '$rootScope',  function (authService, $scope, $rootScope) {
+  .controller('NavbarController', ['AuthService', '$scope', '$rootScope', '$sessionStorage',  function (authService, $scope, $rootScope, $sessionStorage) {
       $scope.user = {};
+      $scope.$sessionStorage = $sessionStorage;
+
       $scope.logout = function(){
         authService.Logout().then(function(response){
           alert('logged out correctly');
-          $rootScope.currentUser = null;
+          $sessionStorage.currentUser = null;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         })
@@ -12,7 +14,7 @@ angular.module('AngularScaffold.Controllers')
 
       $scope.login = function(user){
         authService.Login(user).then(function(response){
-          $rootScope.currentUser = response.data;
+          $sessionStorage.currentUser = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
