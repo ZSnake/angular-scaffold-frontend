@@ -16,11 +16,10 @@ angular.module('AngularScaffold.Controllers')
       $scope.postStudents = function(){
         HomeService.PostStudents($scope.student).then(function(response){
           alert("Posted to /students");
+          $scope.getStudents();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
-      $scope.changeExampleObject = function(){
-        $scope.exampleObject = {text: "Adios, mundo."};
-      }
+
   }]);

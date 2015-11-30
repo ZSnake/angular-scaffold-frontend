@@ -12,24 +12,30 @@
     <!-- endinject -->
   </head>
   <body ng-app="AngularScaffold">
-    <nav class="navbar navbar-default" ng-controller="NavbarController">
-      <div class="container-fluid" >
-        <div class="navbar-header pull-right">
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group pull-right" ng-show="!$sessionStorage.currentUser">
-              <input type="text" class="form-control" placeholder="username" ng-model="user.username">
-              <input type="password" class="form-control" placeholder="password" ng-model="user.password">
-              <button type="submit" class="btn btn-default" ng-click="login(user)">Log in</button>
-              <button type="submit" class="btn btn-default" ng-click="register()">Register!</button>
-            </div>
-            <div class="row">
-                <button type="submit" class="btn btn-default" ng-click="logout()" ng-show="$sessionStorage.currentUser">Log out</button>
-            </div>
-          </form>
+    <div ng-controller="NavbarController">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid" >
+          <div class="navbar-header pull-right">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group" ng-show="!$sessionStorage.currentUser">
+                <input type="text" class="form-control" placeholder="username" ng-model="user.username">
+                <input type="password" class="form-control" placeholder="password" ng-model="user.password">
+                <button type="submit" class="btn btn-default" ng-click="login(user)">Log in</button>
+                <button type="submit" class="btn btn-default" ng-click="register()">Register!</button>
+              </div>
+              <div class="row">
+                  <button type="submit" class="btn btn-default" ng-click="logout()" ng-show="$sessionStorage.currentUser">Log out</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </nav>
-    <h1>Layout de la pagina :)</h1>
+      </nav>
+      <h1 ng-show="$sessionStorage.currentUser">Bienvenido {{$sessionStorage.currentUser.username}}</h1>
+      <ul ng-repeat="role in $sessionStorage.currentUser.scope">
+        Sus roles son:
+        <li>{{role}}</li>
+      </ul>
+    </div>
     <div class="container">
       <div ui-view></div>
   </div>
@@ -55,8 +61,8 @@
 
   <!-- inject:js -->
   <script src="scripts/controllers/HomeController.js"></script>
-  <script src="scripts/controllers/navbarController.js"></script>
-  <script src="scripts/services/authService.js"></script>
+  <script src="scripts/controllers/NavbarController.js"></script>
+  <script src="scripts/services/AuthService.js"></script>
   <script src="scripts/services/HomeService.js"></script>
   <!-- endinject -->
 </html>
