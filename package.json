@@ -15,7 +15,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "test"
+    "start": "node server",
+    "postinstall" : "gulp index"
   },
   "repository": {
     "type": "git",
