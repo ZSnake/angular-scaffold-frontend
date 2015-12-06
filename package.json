@@ -4,6 +4,7 @@
   "description": "angular scaffold client part",
   "main": "gulpfile.js",
   "dependencies": {
+    "bower": "^1.6.9",
     "gulp": "^3.9.0",
     "gulp-debug": "^2.1.2",
     "gulp-inject": "^3.0.0",
@@ -16,7 +17,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node server",
-    "postinstall" : "bower install && gulp index"
+    "postinstall": "bower install && gulp index"
   },
   "repository": {
     "type": "git",
